@@ -5,7 +5,7 @@ document.getElementById('search-button').addEventListener('click', function() {
         return;
     }
 
-    // Show loading spinner
+    //  loading spinner
     document.getElementById('loading-spinner').classList.add('visible');
 
     fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${searchInput}`)
@@ -23,7 +23,7 @@ document.getElementById('search-button').addEventListener('click', function() {
             clearPokemonInfo();
         })
         .finally(() => {
-            // Hide loading spinner
+            // hide loading 
             document.getElementById('loading-spinner').classList.remove('visible');
         });
 });
@@ -32,13 +32,13 @@ function displayPokemonInfo(pokemon) {
     //  info card
     document.getElementById('pokemon-info').classList.add('visible');
 
-    // Display Pokémon details
+    // display  details
     document.getElementById('pokemon-name').textContent = pokemon.name.toUpperCase();
     document.getElementById('pokemon-id').textContent = `#${pokemon.id}`;
     document.getElementById('weight').textContent = pokemon.weight;
     document.getElementById('height').textContent = pokemon.height;
 
-    // Display  types
+    // display  types
     const typesContainer = document.getElementById('types');
     typesContainer.innerHTML = '';
     pokemon.types.forEach(type => {
@@ -48,7 +48,7 @@ function displayPokemonInfo(pokemon) {
         typesContainer.appendChild(typeElement);
     });
 
-    // Display  stats
+    // display  stats
     document.getElementById('hp').textContent = pokemon.stats[0].base_stat;
     document.getElementById('attack').textContent = pokemon.stats[1].base_stat;
     document.getElementById('defense').textContent = pokemon.stats[2].base_stat;
@@ -56,7 +56,7 @@ function displayPokemonInfo(pokemon) {
     document.getElementById('special-defense').textContent = pokemon.stats[4].base_stat;
     document.getElementById('speed').textContent = pokemon.stats[5].base_stat;
 
-    // Display  sprite
+    // display  sprite
     const spriteContainer = document.getElementById('sprite-container');
     spriteContainer.innerHTML = '';
     const spriteImg = document.createElement('img');
@@ -66,10 +66,10 @@ function displayPokemonInfo(pokemon) {
 }
 
 function clearPokemonInfo() {
-    // Hide  info card
+    // hide  info card
     document.getElementById('pokemon-info').classList.remove('visible');
 
-    // Clear all fields
+    // clear all fields
     document.getElementById('pokemon-name').textContent = '';
     document.getElementById('pokemon-id').textContent = '';
     document.getElementById('weight').textContent = '';
